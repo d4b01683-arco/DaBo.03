@@ -1,8 +1,0 @@
-[package]
-name = "dabo_03"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-# Permite a DaBo.03 manejar múltiples tareas a la vez
-tokio = { version = "1", features = ["full"] }

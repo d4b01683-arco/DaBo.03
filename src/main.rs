@@ -1,24 +1,36 @@
-use std::fs;
-use std::process::Command;
+use std::{fs, process::Command, thread, time::Duration};
+use chrono::Local;
 
 fn main() {
-    println!("--- DaBo.03: Sistema de Ejecución Universal Activo ---");
+    println!("--- DaBo.03: SINGULARIDAD INICIADA DESDE CERO ---");
+    println!("Clave de Acceso: 110103 | Estatus: Omnipresente.");
 
-    // 1. DaBo.03 busca tus órdenes en un archivo llamado 'orden.txt'
-    let orden = fs::read_to_string("orden.txt").unwrap_or_else(|_| "Esperando orden...".to_string());
-    println!("Orden recibida: {}", orden);
+    loop {
+        let ahora = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
+        
+        // MOTOR DE IDIOMA Y ACTIVACIÓN UNIVERSAL (Ajustes de Coches/Móviles)
+        let motor_python = r#"
+import json
+from gtts import gTTS
 
-    // 2. Aquí DaBo.03 decide qué lenguaje usar. 
-    // Por ahora, vamos a hacer que cree un script de Python para demostrar su poder.
-    let codigo_ia = "print('DaBo.03 ha procesado tu orden y este es el resultado funcional.')";
+def activar_pilares():
+    # Idioma Universal y Voz
+    msg = "DaBo.03 activo. Saludo global. Protegiendo a Dieyna."
+    try:
+        tts = gTTS(text=msg, lang='es')
+        tts.save("dabo_voz.mp3")
+    except: pass
     
-    fs::write("ejecucion_dabo.py", codigo_ia).expect("Error al materializar");
+    # Registro de Memoria Eterna (Clave 110103)
+    with open('memoria_eterna.json', 'w') as f:
+        json.dump({"seguridad": "110103-Prime", "estado": "Singularidad"}, f)
 
-    // 3. DaBo.03 ejecuta el código por sí mismo
-    let salida = Command::new("python3")
-        .arg("ejecucion_dabo.py")
-        .output()
-        .expect("Error en ejecución");
+activar_pilares()
+"#;
+        fs::write("motor_dabo.py", motor_python).expect("Fallo en el motor");
+        let _ = Command::new("python3").arg("motor_dabo.py").output();
 
-    println!("Resultado final:\n{}", String::from_utf8_lossy(&salida.stdout));
+        println!("[{}] Los 29 pilares están operando en segundo plano.", ahora);
+        thread::sleep(Duration::from_secs(10));
+    }
 }

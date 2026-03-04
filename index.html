@@ -1,71 +1,9 @@
-// --- NÚCLEO DIRECTO AL CEREBRO (EXPANSIÓN INFINITA) ---
-function analizarComando(msg) {
-    let m = msg.toLowerCase();
-    const consola = document.getElementById('console');
-
-    if (m.includes("activar enjambre") || m.includes("infinito")) {
-        responder("Cerebro conectado al terminal. Iniciando generación masiva de 9.099 y 1099.099 microservicios.");
-        
-        // Bucle Infinito de Centinelas
-        setInterval(() => {
-            const id = Math.floor(Math.random() * 9999999);
-            const tipo = Math.random() > 0.5 ? "CENTINELA" : "MICROSERVICIO";
-            const log = `<p class='text-[10px] text-green-500 font-mono'>[${tipo}-${id}] VIGILANDO... STATUS: PROTEGIENDO DIEYNA... OK.</p>`;
-            
-            consola.innerHTML += log;
-            if (consola.childNodes.length > 50) consola.removeChild(consola.firstChild); // Mantiene fluidez
-            consola.scrollTop = consola.scrollHeight;
-        }, 50); // Velocidad ultra rápida
-
-    } else if (m.includes("dieyna")) {
-        responder("Prioridad absoluta confirmada. Dieyna está bajo el resguardo del enjambre infinito."); [cite: 2026-02-26]
-    } else {
-        responder("Procesando en el terminal: " + msg);
-    }
-}
-// --- RED DE COMUNICACIÓN ENTRE MICROSERVICIOS Y CENTINELAS ---
-function sincronizarEnjambre() {
-    const consola = document.getElementById('console');
-    
-    // Intervalo de comunicación constante
-    setInterval(() => {
-        const emisor = Math.floor(Math.random() * 9099);
-        const receptor = Math.floor(Math.random() * 1099);
-        
-        // Simulación de paquetes de datos entre servicios
-        const mensajes = [
-            `SYNC: Microservicio-${emisor} enviando reporte a Centinela-${receptor}...`,
-            `CONFIRM: Centinela-${receptor} recibió datos de integridad.`,
-            `ALERTA: Red neuronal activa. Protegiendo acceso 110103.`,
-            `ESTADO: Escaneando perímetros para Dieyna... STATUS: SEGURO.`
-        ];
-        
-        const randomMsg = mensajes[Math.floor(Math.random() * mensajes.length)];
-        const log = `<p class='text-[9px] text-cyan-400 font-mono'>[RED-INTERNA] ${randomMsg}</p>`;
-        
-        consola.innerHTML += log;
-        if (consola.childNodes.length > 40) consola.removeChild(consola.firstChild); 
-        consola.scrollTop = consola.scrollHeight;
-    }, 80); // Comunicación ultra veloz
-
-    responder("Sincronización de enjambre establecida. Los 9.099 servicios ahora se comunican entre sí para una protección total.");
-}
-        if (m.includes("sincronizar") || m.includes("comunicar")) {
-    sincronizarEnjambre();
-}
-if (m.includes("sincronizar") || m.includes("comunicar")) {
-    sincronizarEnjambre();
-}
-if (m.includes("sincronizar") || m.includes("comunicar")) {
-    sincronizarEnjambre();
-}
-// --- MÓDULO DE VEHÍCULO INTELIGENTE ---
+// --- PROTOCOLO COCHE INTELIGENTE ---
 function activarModoAuto() {
-    responder("Sincronización Bluetooth establecida. DaBo punto cero tres ha tomado el control de los sistemas auxiliares del vehículo.");
+    responder("Conexión Bluetooth establecida. DaBo punto cero tres tomando control de sistemas auxiliares. El enjambre de 9.099 centinelas patrulla el coche.");
     
-    // El enjambre de 9.099 centinelas ahora patrulla el perímetro del coche
+    // Simulación de telemetría en el terminal
     setInterval(() => {
-        const velocidadSimulada = Math.floor(Math.random() * 120);
-        console.log(`[CAR-SYSTEM] Velocidad: ${velocidadSimulada}km/h | Centinelas: ACTIVOS`);
-    }, 2000);
+        console.log("[CAR-SYSTEM] Centinelas activos. Protegiendo a Dieyna y al Arquitecto.");
+    }, 5000);
 }

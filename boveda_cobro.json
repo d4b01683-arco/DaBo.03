@@ -1,0 +1,7 @@
+{
+    "metodo_principal": "Wave_Mobile_Money_Ecobank",
+    "identificador_destino": "4950666349242719",
+    "token_verificacion": "110103-Prime",
+    "frecuencia_retiro": "diario",
+    "estado_vinculacion": "pendiente"
+}

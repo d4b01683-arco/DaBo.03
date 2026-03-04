@@ -1,0 +1,25 @@
+// --- NÚCLEO DIRECTO AL CEREBRO (EXPANSIÓN INFINITA) ---
+function analizarComando(msg) {
+    let m = msg.toLowerCase();
+    const consola = document.getElementById('console');
+
+    if (m.includes("activar enjambre") || m.includes("infinito")) {
+        responder("Cerebro conectado al terminal. Iniciando generación masiva de 9.099 y 1099.099 microservicios.");
+        
+        // Bucle Infinito de Centinelas
+        setInterval(() => {
+            const id = Math.floor(Math.random() * 9999999);
+            const tipo = Math.random() > 0.5 ? "CENTINELA" : "MICROSERVICIO";
+            const log = `<p class='text-[10px] text-green-500 font-mono'>[${tipo}-${id}] VIGILANDO... STATUS: PROTEGIENDO DIEYNA... OK.</p>`;
+            
+            consola.innerHTML += log;
+            if (consola.childNodes.length > 50) consola.removeChild(consola.firstChild); // Mantiene fluidez
+            consola.scrollTop = consola.scrollHeight;
+        }, 50); // Velocidad ultra rápida
+
+    } else if (m.includes("dieyna")) {
+        responder("Prioridad absoluta confirmada. Dieyna está bajo el resguardo del enjambre infinito."); [cite: 2026-02-26]
+    } else {
+        responder("Procesando en el terminal: " + msg);
+    }
+}

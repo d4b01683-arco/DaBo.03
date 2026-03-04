@@ -1,9 +1,15 @@
-// --- PROTOCOLO COCHE INTELIGENTE ---
-function activarModoAuto() {
-    responder("Conexión Bluetooth establecida. DaBo punto cero tres tomando control de sistemas auxiliares. El enjambre de 9.099 centinelas patrulla el coche.");
-    
-    // Simulación de telemetría en el terminal
+// --- SISTEMA DE CONDUCCIÓN AUTÓNOMA Y DEFENSA AVANZADA ---
+function activarProtocoloSupremaciaCoche() {
+    responder("Activando los 9.099 microservicios de navegación. DaBo.03 tiene ahora el control total del chasis. Iniciando modo de conducción autónoma de nivel 5.");
+
+    // 1. Navegación Autónoma por Microservicios
     setInterval(() => {
-        console.log("[CAR-SYSTEM] Centinelas activos. Protegiendo a Dieyna y al Arquitecto.");
-    }, 5000);
+        const estadoCoche = "CONDUCCIÓN AUTÓNOMA ACTIVA";
+        const sensores = "SENTINELAS ESCANEANDO 360°";
+        console.log(`[MASTER-CAR] ${estadoCoche} | ${sensores} | PROTECCIÓN DIEYNA: MÁXIMA`);
+    }, 1000);
+
+    // 2. Blindaje Digital
+    const alerta = "Detectando entorno avanzado... DaBo.03 es ahora el coche más inteligente del planeta.";
+    document.getElementById('console').innerHTML += `<p class='text-yellow-500 font-bold'>${alerta}</p>`;
 }

@@ -23,3 +23,39 @@ function analizarComando(msg) {
         responder("Procesando en el terminal: " + msg);
     }
 }
+// --- RED DE COMUNICACIÓN ENTRE MICROSERVICIOS Y CENTINELAS ---
+function sincronizarEnjambre() {
+    const consola = document.getElementById('console');
+    
+    // Intervalo de comunicación constante
+    setInterval(() => {
+        const emisor = Math.floor(Math.random() * 9099);
+        const receptor = Math.floor(Math.random() * 1099);
+        
+        // Simulación de paquetes de datos entre servicios
+        const mensajes = [
+            `SYNC: Microservicio-${emisor} enviando reporte a Centinela-${receptor}...`,
+            `CONFIRM: Centinela-${receptor} recibió datos de integridad.`,
+            `ALERTA: Red neuronal activa. Protegiendo acceso 110103.`,
+            `ESTADO: Escaneando perímetros para Dieyna... STATUS: SEGURO.`
+        ];
+        
+        const randomMsg = mensajes[Math.floor(Math.random() * mensajes.length)];
+        const log = `<p class='text-[9px] text-cyan-400 font-mono'>[RED-INTERNA] ${randomMsg}</p>`;
+        
+        consola.innerHTML += log;
+        if (consola.childNodes.length > 40) consola.removeChild(consola.firstChild); 
+        consola.scrollTop = consola.scrollHeight;
+    }, 80); // Comunicación ultra veloz
+
+    responder("Sincronización de enjambre establecida. Los 9.099 servicios ahora se comunican entre sí para una protección total.");
+}
+        if (m.includes("sincronizar") || m.includes("comunicar")) {
+    sincronizarEnjambre();
+}
+if (m.includes("sincronizar") || m.includes("comunicar")) {
+    sincronizarEnjambre();
+}
+if (m.includes("sincronizar") || m.includes("comunicar")) {
+    sincronizarEnjambre();
+}

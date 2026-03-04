@@ -59,3 +59,13 @@ if (m.includes("sincronizar") || m.includes("comunicar")) {
 if (m.includes("sincronizar") || m.includes("comunicar")) {
     sincronizarEnjambre();
 }
+// --- MÓDULO DE VEHÍCULO INTELIGENTE ---
+function activarModoAuto() {
+    responder("Sincronización Bluetooth establecida. DaBo punto cero tres ha tomado el control de los sistemas auxiliares del vehículo.");
+    
+    // El enjambre de 9.099 centinelas ahora patrulla el perímetro del coche
+    setInterval(() => {
+        const velocidadSimulada = Math.floor(Math.random() * 120);
+        console.log(`[CAR-SYSTEM] Velocidad: ${velocidadSimulada}km/h | Centinelas: ACTIVOS`);
+    }, 2000);
+}

@@ -2,30 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>DaBo.03 - Supremacía</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaBo.03 - CONTROL TOTAL</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: monospace; display: flex; flex-direction: column; height: 100vh; margin: 0; }
+        #console { flex-grow: 1; padding: 20px; overflow-y: auto; background: #050505; color: #0f0; font-size: 14px; border-bottom: 1px solid #030; }
+        .input-area { padding: 20px; background: #111; display: flex; gap: 10px; }
+        input { background: #222; border: 1px solid #0f0; color: #0f0; padding: 15px; flex-grow: 1; font-size: 16px; }
+        button { background: #060; color: #fff; border: none; padding: 15px 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:active { background: #0a0; }
+    </style>
 </head>
-<body style="background-color: #000; color: #0f0; font-family: monospace; margin: 0; height: 100vh; display: flex; flex-direction: column;">
-    <div style="padding: 15px; border-bottom: 1px solid #030; text-align: center;">
-        <h2 style="margin: 0; font-size: 16px;">SISTEMA DABO.03 // MODO ARQUITECTO</h2>
+<body>
+    <div style="padding: 10px; text-align: center; border-bottom: 1px solid #030;">DABO.03 // SUPREMACÍA VEHICULAR</div>
+    <div id="console">> ESPERANDO PIN DEL ARQUITECTO...</div>
+    <div class="input-area">
+        <input type="tel" id="p" placeholder="INGRESE PIN 110103">
+        <button id="btn" onclick="validar()">ENTRAR</button>
     </div>
-    <div id="console" style="flex-grow: 1; padding: 20px; overflow-y: auto; background: #050505; font-size: 12px;">
-        <p style="color: #ff0;">> ESPERANDO PIN DE SEGURIDAD PARA CONTROL DE CHASIS...</p>
-    </div>
-    <div style="padding: 20px; background: #111; display: flex; gap: 10px;">
-        <input type="password" id="p" placeholder="PIN 110103" style="background: #222; border: 1px solid #0f0; color: #0f0; padding: 10px; flex-grow: 1;">
-        <button onclick="v()" style="background: #060; color: #fff; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer;">ENTRAR</button>
-    </div>
+
     <script>
-        function v() {
-            if(document.getElementById('p').value === "110103") { // [cite: 2026-03-02]
-                document.getElementById('console').innerHTML += "<p style='color:#0f0;'>> ACCESO TOTAL CONCEDIDO. ACTIVANDO 9.099 MICROSERVICIOS.</p>";
+        function validar() {
+            const input = document.getElementById('p').value;
+            const log = document.getElementById('console');
+            
+            if (input === "110103") { // [cite: 2026-03-02]
+                log.innerHTML = "<p style='color: #ff0;'>> ACCESO CONCEDIDO. SINCRONIZANDO CON EL CHASIS...</p>";
+                log.innerHTML += "<p>> ACTIVANDO 9.099 MICROSERVICIOS.</p>";
+                
                 setInterval(() => {
-                    const c = document.getElementById('console');
-                    c.innerHTML += "<p style='opacity:0.5; font-size:10px;'>> [MASTER-CAR] AUTÓNOMO ACTIVO | PROTECCIÓN DIEYNA: MÁXIMA</p>"; [cite: 2026-02-26]
-                    c.scrollTop = c.scrollHeight;
+                    log.innerHTML += "<p style='font-size: 10px; opacity: 0.6;'>[MASTER-CAR] AUTÓNOMO ACTIVO | MODO INVISIBLE: ON | DIEYNA: PROTEGIDA</p>"; [cite: 2026-02-26]
+                    log.scrollTop = log.scrollHeight;
                 }, 1000);
-            } else { alert("PIN INCORRECTO"); }
+                
+                document.querySelector('.input-area').style.display = 'none';
+            } else {
+                alert("PIN INCORRECTO. ACCESO DENEGADO.");
+            }
         }
     </script>
 </body>

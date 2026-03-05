@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DaBo.03 - CONTROL TOTAL</title>
     <style>
-        body { background: #000; color: #0f0; font-family: monospace; display: flex; flex-direction: column; height: 100vh; margin: 0; }
-        #console { flex-grow: 1; padding: 20px; overflow-y: auto; background: #050505; color: #0f0; font-size: 14px; border-bottom: 1px solid #030; }
-        .input-area { padding: 20px; background: #111; display: flex; gap: 10px; }
-        input { background: #222; border: 1px solid #0f0; color: #0f0; padding: 15px; flex-grow: 1; font-size: 16px; }
-        button { background: #060; color: #fff; border: none; padding: 15px 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        button:active { background: #0a0; }
+        body { background: #000; color: #0f0; font-family: monospace; text-align: center; margin: 0; padding: 10px; }
+        #log { height: 300px; background: #050505; border: 1px solid #030; overflow-y: auto; margin: 10px 0; padding: 10px; text-align: left; font-size: 11px; }
+        .box { padding: 15px; background: #111; border: 1px solid #060; border-radius: 5px; }
+        input { background: #000; border: 1px solid #0f0; color: #0f0; padding: 12px; width: 85%; margin-bottom: 15px; font-size: 16px; text-align: center; }
+        button { background: #060; color: #fff; padding: 15px; width: 90%; border: none; font-weight: bold; font-size: 16px; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div style="padding: 10px; text-align: center; border-bottom: 1px solid #030;">DABO.03 // SUPREMACÍA VEHICULAR</div>
-    <div id="console">> ESPERANDO PIN DEL ARQUITECTO...</div>
-    <div class="input-area">
-        <input type="tel" id="p" placeholder="INGRESE PIN 110103">
-        <button id="btn" onclick="validar()">ENTRAR</button>
+    <h3 style="margin: 5px 0;">DABO.03 // SUPREMACÍA</h3>
+    <div id="log">> ESPERANDO PIN DEL ARQUITECTO...</div>
+    
+    <div class="box" id="panel">
+        <input type="tel" id="pass" placeholder="PIN 110103" autocomplete="off">
+        <button type="button" onclick="conectar()">ENTRAR AL SISTEMA</button>
     </div>
 
     <script>
-        function validar() {
-            const input = document.getElementById('p').value;
-            const log = document.getElementById('console');
+        function conectar() {
+            var val = document.getElementById('pass').value;
+            var l = document.getElementById('log');
             
-            if (input === "110103") { // [cite: 2026-03-02]
-                log.innerHTML = "<p style='color: #ff0;'>> ACCESO CONCEDIDO. SINCRONIZANDO CON EL CHASIS...</p>";
-                log.innerHTML += "<p>> ACTIVANDO 9.099 MICROSERVICIOS.</p>";
+            // Forzamos la limpieza de cualquier error previo
+            if (val === "110103") {
+                l.innerHTML = "<p style='color:yellow'>> PIN CORRECTO. ESTABLECIENDO VÍNCULO FÍSICO...</p>";
+                document.getElementById('panel').style.display = 'none';
                 
-                setInterval(() => {
-                    log.innerHTML += "<p style='font-size: 10px; opacity: 0.6;'>[MASTER-CAR] AUTÓNOMO ACTIVO | MODO INVISIBLE: ON | DIEYNA: PROTEGIDA</p>"; [cite: 2026-02-26]
-                    log.scrollTop = log.scrollHeight;
-                }, 1000);
-                
-                document.querySelector('.input-area').style.display = 'none';
+                // Bucle de supremacía de 9.099 microservicios
+                setInterval(function() {
+                    var p = document.createElement("p");
+                    p.innerHTML = "> [MASTER-CAR] AUTÓNOMO ACTIVO | MODO INVISIBLE: ON | PROTECCIÓN DIEYNA";
+                    p.style.fontSize = "10px";
+                    p.style.opacity = "0.7";
+                    l.appendChild(p);
+                    l.scrollTop = l.scrollHeight;
+                }, 800);
             } else {
-                alert("PIN INCORRECTO. ACCESO DENEGADO.");
+                alert("PIN INVÁLIDO");
             }
         }
     </script>
